@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday Ekta</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ffd6e0,#ff9aa2);
+    font-family:Arial;
+    overflow:hidden;
+}
+
+.card{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    max-width:600px;
+    text-align:center;
+    box-shadow:0 15px 30px rgba(0,0,0,.3);
+    z-index:2;
+}
+
+h1{color:#ff4d6d;}
+
+p{
+    font-size:18px;
+    line-height:1.6;
+}
+
+/* Confetti */
+
+.confetti{
+    position:absolute;
+    top:-10px;
+    width:10px;
+    height:10px;
+    background:red;
+    animation:fall 4s linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h1>🎂 Happy Birthday Ekta 🎉</h1>
+
+<p>
+On your special day, Ekta, I wish you endless happiness, love, and beautiful memories.
+Thank you for being such an amazing part of my life.
+May all your dreams come true this year and always.
+You mean everything to me ❤️
+</p>
+</div>
+
+<script>
+function confettiBurst(){
+ for(let i=0;i<120;i++){
+   let c=document.createElement("div");
+   c.className="confetti";
+   c.style.left=Math.random()*100+"vw";
+   c.style.background=`hsl(${Math.random()*360},100%,50%)`;
+   c.style.animationDuration=(3+Math.random()*2)+"s";
+   c.style.width=c.style.height=(6+Math.random()*6)+"px";
+   document.body.appendChild(c);
+   setTimeout(()=>c.remove(),5000);
+ }
+}
+
+confettiBurst();
+</script>
+
+</body>
+</html>

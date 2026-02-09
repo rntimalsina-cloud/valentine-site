@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Valentine</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at top, #ffd6e0, #ff9aa2);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #fff, #fff5f7);
+            width: 700px;
+            max-width: 90%;
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow:
+                0 20px 40px rgba(0,0,0,0.25),
+                inset 0 0 20px rgba(255, 182, 193, 0.6);
+            position: relative;
+            z-index: 2;
+        }
+
+        .letter {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .letter strong {
+            font-size: 20px;
+            color: #ff4d6d;
+        }
+
+        h2 {
+            margin: 25px 0 15px;
+            color: #ff4d6d;
+        }
+
+        button {
+            padding: 14px 34px;
+            margin: 10px;
+            font-size: 17px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        .yes {
+            background: linear-gradient(135deg, #ff4d6d, #ff758f);
+            color: white;
+        }
+
+        .no {
+            background: #eee;
+            color: #555;
+        }
+
+        .music {
+            background: #ffe6ea;
+            color: #ff4d6d;
+            font-weight: bold;
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: absolute;
+            bottom: -30px;
+            font-size: 22px;
+            animation: floatUp 6s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes floatUp {
+            to {
+                transform: translateY(-110vh) scale(1.6);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+    <source src="Cresent.m4a" type="audio/mp4">
+</audio>
+
+
+    <div class="card">
+        <div class="letter">
+            <strong>Dear Ekta,</strong><br><br>
+            The most wonderful person of my world, I’m more than blessed to have you in my life.
+            I can’t wait to go another Valentine with you. You mean so much to me and you are my everything.
+            You are having a good time in Nepal and I’m really happy that you are happy.
+            I can’t wait to see you again because I miss you so much already.
+            <br><br>
+            I love you now and forever ❤️
+        </div>
+
+        <button class="music" onclick="playMusic()">▶ Play Music</button>
+
+        <h2>Would you like to be my Valentine? 💘</h2>
+
+        <button class="yes" onclick="goYes()">Yes</button>
+        <button class="no" onclick="alert('My heart is still yours 🥺')">No</button>
+    </div>
+
+    <script>
+        function playMusic() {
+            const music = document.getElementById("bgMusic");
+            music.play();
+        }
+
+        function goYes() {
+            window.location.href = "yes.html";
+        }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 7000);
+        }
+
+        setInterval(createHeart, 250);
+    </script>
+
+</body>
+</html>
